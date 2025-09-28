@@ -1,5 +1,3 @@
-# app.py
-
 from flask import Flask
 import threading
 import asyncio
@@ -19,10 +17,8 @@ def hello_world():
     """Endpoint for uptime monitor to hit."""
     return 'Bot is running in the background!'
 
-# This code now runs when Gunicorn loads the file,
-# ensuring the bot starts in the production environment.
 bot_thread = threading.Thread(target=run_async_bot)
-bot_thread.daemon = True  # This allows the main app to exit even if the thread is running
+bot_thread.daemon = True  # Allows the main app to exit even if the thread is running
 bot_thread.start()
 
 # This block is now only used for running the app locally for testing.
